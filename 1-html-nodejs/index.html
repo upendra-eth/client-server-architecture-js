@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Client-Server Model Example</title>
+</head>
+<body>
+  <h1>Client-Server Model Example</h1>
+  <button onclick="fetchData()">Fetch Data from Server</button>
+  <p id="response"></p>
+
+  <script>
+    function fetchData() {
+      fetch('http://localhost:3000/data')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('response').textContent = data.message;
+        })
+        .catch(error => {
+          document.getElementById('response').textContent = 'Error fetching data from server';
+        });
+    }
+  </script>
+</body>
+</html>
